@@ -4,10 +4,11 @@
             <item name="android:actionBarStyle">@style/IONifyTheme.ActionBarStyle</item>
     </style>
     <style name="IONifyTheme.ActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar">
-        <item name="android:background">#ff9523</item>
+        <item name="android:background">@color/cmenue_background</item>
         <item name="android:titleTextStyle">@style/IONifyTheme.ActionBar.TitleTextStyle</item>
+        <item name="android:textColor">@color/cmenu_text</item>
     </style>
     <style name="IONifyTheme.ActionBar.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
-        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textColor">@color/cmenu_text</item>
     </style>
 </resources>
