@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="IONifyTheme" parent="@android:Theme.Holo.Light">
+            <item name="android:actionBarStyle">@style/IONifyTheme.ActionBarStyle</item>
+    </style>
+    <style name="IONifyTheme.ActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">#ff9523</item>
+        <item name="android:titleTextStyle">@style/IONifyTheme.ActionBar.TitleTextStyle</item>
+    </style>
+    <style name="IONifyTheme.ActionBar.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+</resources>
