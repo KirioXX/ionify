@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">IONify</string>
+    <string name="action_help">Hilfe</string>
     <string name="action_search">Suchen</string>
     <string name="drawer_open">Slider Menu Opened</string>
     <string name="drawer_close">Slider Menu Closed</string>
@@ -29,4 +30,6 @@
     <!-- Content Description -->
     <string name="desc_list_item_icon">Item Icon</string>
 
+    <string name="home_text">Bitte Wählen Sie Ihr Element aus der Liste.</string>
+    <string name="home_button">Zur Liste</string>
 </resources>

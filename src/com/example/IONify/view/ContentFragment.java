@@ -1,10 +1,11 @@
-package com.example.IONify;
+package com.example.IONify.view;
 
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.example.IONify.R;
 
 /**
  * Created by BEN on 27.05.2014.

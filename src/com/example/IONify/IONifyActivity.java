@@ -30,7 +30,7 @@ import android.view.View;
 import android.widget.AdapterView;
 
 import android.widget.ListView;
-
+import com.example.IONify.view.HomeFragment;
 
 
 public class IONifyActivity extends Activity {
@@ -85,9 +85,7 @@ public class IONifyActivity extends Activity {
 
         // nav drawer icons from resources
 
-        navMenuIcons = getResources()
-
-                .obtainTypedArray(R.array.nav_drawer_icons);
+        navMenuIcons = getResources().obtainTypedArray(R.array.nav_drawer_icons);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
@@ -126,9 +124,7 @@ public class IONifyActivity extends Activity {
 
         // setting the nav drawer list adapter
 
-        adapter = new NavDrawerListAdapter(getApplicationContext(),
-
-                navDrawerItems);
+        adapter = new NavDrawerListAdapter(getApplicationContext(), navDrawerItems);
 
         mDrawerList.setAdapter(adapter);
 
@@ -141,9 +137,7 @@ public class IONifyActivity extends Activity {
 
 
 
-        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
-
-                R.drawable.ic_navigation_drawer, //nav menu toggle icon
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.drawable.ic_navigation_drawer, //nav menu toggle icon
 
                 R.string.app_name, // nav drawer open - description for accessibility
 
@@ -183,7 +177,9 @@ public class IONifyActivity extends Activity {
 
             // on first time display view for first nav item
 
-            displayView(0);
+            Fragment fragment=new HomeFragment();
+            setContent(fragment);
+            setTitle("IONify");
 
         }
 
@@ -203,9 +199,7 @@ public class IONifyActivity extends Activity {
 
         @Override
 
-        public void onItemClick(AdapterView<?> parent, View view, int position,
-
-                                long id) {
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
             // display view for selected nav drawer item
 
@@ -245,8 +239,10 @@ public class IONifyActivity extends Activity {
 
         switch (item.getItemId()) {
 
-            case R.id.action_search:
-
+            case R.id.action_help:
+                Fragment fragment=new HomeFragment();
+                setContent(fragment);
+                setTitle(item.getTitleCondensed());
                 return true;
 
             default:
@@ -273,7 +269,8 @@ public class IONifyActivity extends Activity {
 
         boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
 
-        menu.findItem(R.id.action_search).setVisible(!drawerOpen);
+        menu.findItem(R.id.action_help).setVisible(!drawerOpen);
+        menu.findItem(R.id.action_search).setVisible(drawerOpen);
 
         return super.onPrepareOptionsMenu(menu);
 
@@ -296,9 +293,7 @@ public class IONifyActivity extends Activity {
         switch (position) {
 
             case 0:
-
-                fragment = new SunFragment();
-
+                Log.e("MainActivity","First");
                 break;
 
             case 1:
@@ -343,13 +338,7 @@ public class IONifyActivity extends Activity {
 
         if (fragment != null) {
 
-            FragmentManager fragmentManager = getFragmentManager();
-
-            fragmentManager.beginTransaction()
-
-                    .replace(R.id.frame_container, fragment).commit();
-
-
+            setContent(fragment);
 
             // update selected item and title, then close the drawer
 
@@ -415,5 +404,15 @@ public class IONifyActivity extends Activity {
 
         mDrawerToggle.onConfigurationChanged(newConfig);
 
+    }
+
+    public void setContent(Fragment fragment){
+        FragmentManager fragmentManager = getFragmentManager();
+
+        fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit();
+    }
+
+    public void openDrawer(){
+        mDrawerLayout.openDrawer(mDrawerList);
     }
 }
