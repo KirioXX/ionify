@@ -29,7 +29,7 @@ public class db {
     public static final String DICHTE = "dichte";
     public static final String SCHMW = "schmelzwärme";
     public static final String SPEZW = "spezifischeWärme";
-    //DB, Table
+    //DB, Table,version
     public static final String DATABASE_TABLE_NAME = "Elements";
     public static final String DATA_BASE_NAME = "DataBase";
     public static final int DATABASE_VERSION = 1;
