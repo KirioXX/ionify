@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">IONify</string>
+    <string name="action_help">Hilfe</string>
     <string name="action_search">Suchen</string>
+    <string name="drawer_open">Slider Menu Opened</string>
+    <string name="drawer_close">Slider Menu Closed</string>
+
+    <!-- Nav Drawer Menu Items -->
+    <string-array name="nav_drawer_items">
+        <item >Bright Sun</item>
+        <item >Night At</item>
+        <item >Sunshine</item>
+        <item >Rainy Season </item>
+        <item >Winter Season</item>
+        <item >Hot Temp</item>
+    </string-array>
+
+    <!-- Nav Drawer List Item Icons -->
+    <!-- Keep them in order as the titles are in -->
+    <array name="nav_drawer_icons">
+        <item>@drawable/ic_action_search</item>
+        <item>@drawable/ic_action_search</item>
+        <item>@drawable/ic_action_search</item>
+        <item>@drawable/ic_action_search</item>
+        <item>@drawable/ic_action_search</item>
+        <item>@drawable/ic_action_search</item>
+    </array>
+
+    <!-- Content Description -->
+    <string name="desc_list_item_icon">Item Icon</string>
+
+    <string name="home_text">Bitte Wählen Sie Ihr Element aus der Liste.</string>
+    <string name="home_button">Zur Liste</string>
 </resources>
