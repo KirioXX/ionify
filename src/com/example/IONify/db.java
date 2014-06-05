@@ -120,4 +120,6 @@ public class db {
         return m_db.query(DATABASE_TABLE_NAME, new String[]{NAME, SYMBOL}, null, null, null, null, null);
 
     }
+
+
 }

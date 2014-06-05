@@ -67,6 +67,7 @@ public class IONifyActivity extends Activity {
 
     private NavDrawerListAdapter adapter;
 
+    private db data;
 
 
     @Override
@@ -79,12 +80,17 @@ public class IONifyActivity extends Activity {
 
         mTitle = mDrawerTitle = getTitle();
 
-        // load slide menu items
+        // create db Objekt
+        data = new db(this);
+        // TODO ersten Test Eitrag erstellen
 
+        // load slide menu items
+        // TODO Element Namen als StringArray aus Datenbank ziehen
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
 
         // nav drawer icons from resources
-
+        // TODO Icons durch Nummern ersetzen
+        // TODO Nummern aus Datenbank holen
         navMenuIcons = getResources().obtainTypedArray(R.array.nav_drawer_icons);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -93,6 +99,7 @@ public class IONifyActivity extends Activity {
 
         navDrawerItems = new ArrayList<NavDrawerItem>();
         // adding nav drawer items to array
+        // TODO Menue punkte mit schleife erzeugen
 
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons.getResourceId(0, -1)));
 
@@ -287,6 +294,7 @@ public class IONifyActivity extends Activity {
     private void displayView(int position) {
 
         // update the main content by replacing fragments
+        // TODO wenn Menue fertig hier ContentView automatisieren
 
         Fragment fragment = null;
 
