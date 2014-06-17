@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="db-version">1</integer>
+
+    <string-array name="ordn">
+        <item >1</item>
+    </string-array>
+
+    <string-array name="name">
+        <item >Wasserstoff</item>
+    </string-array>
+
+    <string-array name="symbol">
+        <item >H</item>
+    </string-array>
+
+    <string-array name="elekk">
+        <item >bla</item>
+    </string-array>
+
+    <string-array name="atomm">
+        <item >1.00794</item>
+    </string-array>
+
+    <string-array name="schmp">
+        <item >14.01</item>
+    </string-array>
+
+    <string-array name="siedp">
+        <item >20.28</item>
+    </string-array>
+
+    <string-array name="dichte">
+        <item >0.0708</item>
+    </string-array>
+
+    <string-array name="schmw">
+        <item >0.117</item>
+    </string-array>
+
+    <string-array name="spezw">
+        <item >14.267</item>
+    </string-array>
+
+</resources>
