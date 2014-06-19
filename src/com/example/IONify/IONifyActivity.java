@@ -1,4 +1,5 @@
 package com.example.IONify;
+import android.widget.Toast;
 import com.example.IONify.adapter.NavDrawerListAdapter;
 
 import com.example.IONify.model.NavDrawerItem;
@@ -422,5 +423,28 @@ public class IONifyActivity extends Activity {
 
     public void openDrawer(){
         mDrawerLayout.openDrawer(mDrawerList);
+    }
+
+    public void setDataDB(){
+        int version = getResources().getInteger(R.integer.db_version);
+        if( version > data.getDBVersion()){
+            int[] ordn = getResources().getIntArray(R.array.ordn);
+            String[] name = getResources().getStringArray(R.array.name);
+            String[] symbol = getResources().getStringArray(R.array.symbol);
+            String[] elekk = getResources().getStringArray(R.array.elekk);
+            String[] atomm = getResources().getStringArray(R.array.atomm);
+            String[] schmp = getResources().getStringArray(R.array.schmp);
+            String[] siedp = getResources().getStringArray(R.array.siedp);
+            String[] dichte = getResources().getStringArray(R.array.dichte);
+            String[] schmw = getResources().getStringArray(R.array.schmw);
+            String[] spezw = getResources().getStringArray(R.array.spezw);
+            for(int o : ordn){
+                //TODO doppeltes eintragen abfangen!!!!
+                data.insertData(ordn[o], name[o], symbol[o], elekk[o], Double.parseDouble(atomm[o]), Double.parseDouble(schmp[o]), Double.parseDouble(siedp[o]), Double.parseDouble(dichte[o]), Double.parseDouble(schmw[o]), Double.parseDouble(spezw[o]));
+            }
+            Toast.makeText(getBaseContext(), "Data inserted", Toast.LENGTH_LONG).show();
+        }else{
+            Toast.makeText(getBaseContext(), "Data letzte", Toast.LENGTH_LONG).show();
+        }
     }
 }

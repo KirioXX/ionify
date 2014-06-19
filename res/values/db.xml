@@ -1,45 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <integer name="db-version">1</integer>
+    <integer name="db_version">1</integer>
 
     <string-array name="ordn">
         <item >1</item>
+        <item>2</item>
     </string-array>
 
     <string-array name="name">
         <item >Wasserstoff</item>
+        <item>Helium</item>
     </string-array>
 
     <string-array name="symbol">
         <item >H</item>
+        <item>He</item>
     </string-array>
 
     <string-array name="elekk">
         <item >bla</item>
+        <item>1s2</item>
     </string-array>
 
     <string-array name="atomm">
         <item >1.00794</item>
+        <item>4.002602</item>
     </string-array>
 
     <string-array name="schmp">
         <item >14.01</item>
+        <item>0.95</item>
     </string-array>
 
     <string-array name="siedp">
         <item >20.28</item>
+        <item>4.216</item>
     </string-array>
 
     <string-array name="dichte">
         <item >0.0708</item>
+        <item>0.147</item>
     </string-array>
 
     <string-array name="schmw">
         <item >0.117</item>
+        <item>-</item>
     </string-array>
 
     <string-array name="spezw">
         <item >14.267</item>
+        <item>5.188</item>
     </string-array>
 
 </resources>

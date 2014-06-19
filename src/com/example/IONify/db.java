@@ -121,5 +121,8 @@ public class db {
 
     }
 
+    public int getDBVersion(){
+        return DATABASE_VERSION;
+    }
 
 }
