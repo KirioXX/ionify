@@ -81,6 +81,7 @@ public class db {
             db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE_NAME);
             newVersion = oldVersion + 1;
             onCreate(db);
+
             System.out.println("updated");
         }
     }
@@ -124,5 +125,4 @@ public class db {
     public int getDBVersion(){
         return DATABASE_VERSION;
     }
-
 }

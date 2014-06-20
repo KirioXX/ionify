@@ -1,4 +1,7 @@
 package com.example.IONify;
+import android.opengl.Visibility;
+import android.view.MenuInflater;
+import android.widget.SearchView;
 import android.widget.Toast;
 import com.example.IONify.adapter.NavDrawerListAdapter;
 
@@ -31,6 +34,7 @@ import android.view.View;
 import android.widget.AdapterView;
 
 import android.widget.ListView;
+import com.example.IONify.view.ContentFragment;
 import com.example.IONify.view.HomeFragment;
 
 
@@ -60,7 +64,7 @@ public class IONifyActivity extends Activity {
 
     private String[] navMenuTitles;
 
-    private TypedArray navMenuIcons;
+    private String[] navMenuNumber;
 
 
 
@@ -69,7 +73,6 @@ public class IONifyActivity extends Activity {
     private NavDrawerListAdapter adapter;
 
     private db data;
-
 
     @Override
 
@@ -81,8 +84,9 @@ public class IONifyActivity extends Activity {
 
         mTitle = mDrawerTitle = getTitle();
 
-        // create db Objekt
+        // create elements_records Objekt
         data = new db(this);
+
         // TODO ersten Test Eitrag erstellen
 
         // load slide menu items
@@ -92,7 +96,7 @@ public class IONifyActivity extends Activity {
         // nav drawer icons from resources
         // TODO Icons durch Nummern ersetzen
         // TODO Nummern aus Datenbank holen
-        navMenuIcons = getResources().obtainTypedArray(R.array.nav_drawer_icons);
+        navMenuNumber = getResources().getStringArray(R.array.nav_drawer_icons);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
@@ -102,31 +106,27 @@ public class IONifyActivity extends Activity {
         // adding nav drawer items to array
         // TODO Menue punkte mit schleife erzeugen
 
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons.getResourceId(0, -1)));
+        navDrawerItems.add(new NavDrawerItem(navMenuNumber[0]+' '+navMenuTitles[0]));
 
 
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(1, -1)));
+        navDrawerItems.add(new NavDrawerItem( navMenuNumber[1]+' '+navMenuTitles[1]));
 
         // Sunshine
 
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
+        navDrawerItems.add(new NavDrawerItem(navMenuNumber[2]+' '+navMenuTitles[2]));
 
         // Rainy, Will add a counter here
 
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1), true, "22"));
+        navDrawerItems.add(new NavDrawerItem( navMenuNumber[3]+' '+navMenuTitles[3]));
 
         //Snow
 
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
+        navDrawerItems.add(new NavDrawerItem(navMenuNumber[4]+' '+navMenuTitles[4]));
 
         // What's hot, We  will add a counter here
 
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1), true, "50+"));
+        navDrawerItems.add(new NavDrawerItem(navMenuNumber[5]+' '+navMenuTitles[5]));
 
-
-        // Recycle the typed array
-
-        navMenuIcons.recycle();
 
         mDrawerList.setOnItemClickListener(new SlideMenuClickListener());
 
@@ -154,7 +154,6 @@ public class IONifyActivity extends Activity {
         ) {
 
             public void onDrawerClosed(View view) {
-
                 getActionBar().setTitle(mTitle);
 
                 // calling onPrepareOptionsMenu() to show action bar icons
@@ -190,6 +189,7 @@ public class IONifyActivity extends Activity {
             setTitle("IONify");
 
         }
+
 
     }
 
@@ -302,7 +302,7 @@ public class IONifyActivity extends Activity {
         switch (position) {
 
             case 0:
-                Log.e("MainActivity","First");
+                fragment = new ContentFragment();
                 break;
 
             case 1:
@@ -423,28 +423,5 @@ public class IONifyActivity extends Activity {
 
     public void openDrawer(){
         mDrawerLayout.openDrawer(mDrawerList);
-    }
-
-    public void setDataDB(){
-        int version = getResources().getInteger(R.integer.db_version);
-        if( version > data.getDBVersion()){
-            int[] ordn = getResources().getIntArray(R.array.ordn);
-            String[] name = getResources().getStringArray(R.array.name);
-            String[] symbol = getResources().getStringArray(R.array.symbol);
-            String[] elekk = getResources().getStringArray(R.array.elekk);
-            String[] atomm = getResources().getStringArray(R.array.atomm);
-            String[] schmp = getResources().getStringArray(R.array.schmp);
-            String[] siedp = getResources().getStringArray(R.array.siedp);
-            String[] dichte = getResources().getStringArray(R.array.dichte);
-            String[] schmw = getResources().getStringArray(R.array.schmw);
-            String[] spezw = getResources().getStringArray(R.array.spezw);
-            for(int o : ordn){
-                //TODO doppeltes eintragen abfangen!!!!
-                data.insertData(ordn[o], name[o], symbol[o], elekk[o], Double.parseDouble(atomm[o]), Double.parseDouble(schmp[o]), Double.parseDouble(siedp[o]), Double.parseDouble(dichte[o]), Double.parseDouble(schmw[o]), Double.parseDouble(spezw[o]));
-            }
-            Toast.makeText(getBaseContext(), "Data inserted", Toast.LENGTH_LONG).show();
-        }else{
-            Toast.makeText(getBaseContext(), "Data letzte", Toast.LENGTH_LONG).show();
-        }
     }
 }

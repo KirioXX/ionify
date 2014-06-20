@@ -18,18 +18,36 @@
 
     <!-- Nav Drawer List Item Icons -->
     <!-- Keep them in order as the titles are in -->
-    <array name="nav_drawer_icons">
-        <item>@drawable/ic_action_search</item>
-        <item>@drawable/ic_action_search</item>
-        <item>@drawable/ic_action_search</item>
-        <item>@drawable/ic_action_search</item>
-        <item>@drawable/ic_action_search</item>
-        <item>@drawable/ic_action_search</item>
-    </array>
+    <string-array name="nav_drawer_icons">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
 
     <!-- Content Description -->
-    <string name="desc_list_item_icon">Item Icon</string>
+    <string name="desc_list_item_icon">Ordnung</string>
 
     <string name="home_text">Bitte Wählen Sie Ihr Element aus der Liste.</string>
     <string name="home_button">Zur Liste</string>
+
+    <!-- Fragment Titles -->
+    <string name="frag_all_title">Allgemein</string>
+    <string name="frag_name">Name:</string>
+    <string name="frag_symbol">Symbol:</string>
+    <string name="frag_ord">Ordnungszahl:</string>
+    <string name="frag_ele">Elektronenkonfiguration:</string>
+    <string name="frag_atomm">Atommasse:</string>
+
+    <string name="frag_phy_title">physikalisch</string>
+    <string name="frag_schmp">Schmelzpunkt:</string>
+    <string name="frag_siedp">Siedepunkt:</string>
+    <string name="frag_dich">Dichte:</string>
+    <string name="frag_schmw">Schmelzwärme:</string>
+    <string name="frag_spezw">spezifische Wärme:</string>
+    
+    <string name="frag_lad_title">Ladungszustand</string>
+    <string name="frag_dummy">DUMMY TEXT</string>
 </resources>

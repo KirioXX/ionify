@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<elements>
+    <record id="1" name="Wasserstoff" symbol="H" elekk="1s^1" atomm="1.00794" schmp="14.01" siedp="20.28" dichte="0.0708" schmw="0.117" spezw="14.267"/>
+    <record id="2" name="Helium" symbol="He" elekk="1s^2" atomm="4.002602" schmp="0.95" siedp="4.216" dichte="0.147" schmw="000" spezw="5.188"/>
+    <record id="3" name="Lithium" symbol="Li" elekk="[He]2s^1" atomm="6.941" schmp="553.69" siedp="1118.15" dichte="0.534" schmw="2.89" spezw="3.489"/>
+    <record id="4" name="Beryllium" symbol="Be" elekk="[He]2s^2" atomm="9.01218" schmp="1551" siedp="3243" dichte="1.848" schmw="12.21" spezw="1.824"/>
+    <record id="5" name="Bor" symbol="B" elekk="[He]2s^22p^1" atomm="10.811" schmp="2573" siedp="3931" dichte="2.34" schmw="23.6" spezw="1.025"/>
+    <record id="6" name="Kohlenstoff" symbol="C" elekk="[He]2s^22p^2" atomm="12.011" schmp="3820" siedp="5100" dichte="2.25" schmw="000" spezw="0.711"/>
+    <record id="7" name="Stickstoff" symbol="N" elekk="[He]2s^22p^3" atomm="14.00674" schmp="63.29" siedp="77.4" dichte="0.808" schmw="000" spezw="1.042"/>
+    <record id="8" name="Sauerstoff" symbol="O" elekk="[He]2s^22p^4" atomm="15.9994" schmp="54.8" siedp="90.19" dichte="1.149" schmw="000" spezw="0.916"/>
+    <record id="9" name="Fluor" symbol="F" elekk="[He]2s^22p^5" atomm="18.998403" schmp="53.53" siedp="85.01" dichte="1.108" schmw="0.51" spezw="0.824"/>
+    <record id="10" name="Neon" symbol="Ne" elekk="[He]2s^22p^6" atomm="20.1797" schmp="48" siedp="27.1" dichte="1.204" schmw="000" spezw="1.029"/>
+</elements>
