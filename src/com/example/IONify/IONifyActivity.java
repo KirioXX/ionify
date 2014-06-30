@@ -1,12 +1,12 @@
 package com.example.IONify;
-import android.opengl.Visibility;
-import android.view.MenuInflater;
-import android.widget.SearchView;
-import android.widget.Toast;
+import com.example.IONify.adapter.IONifyDataSource;
 import com.example.IONify.adapter.NavDrawerListAdapter;
 
+import com.example.IONify.model.Element;
 import com.example.IONify.model.NavDrawerItem;
 import java.util.ArrayList;
+import java.util.List;
+
 import android.app.Activity;
 
 import android.app.Fragment;
@@ -14,8 +14,6 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 
 import android.content.res.Configuration;
-
-import android.content.res.TypedArray;
 
 import android.os.Bundle;
 
@@ -62,17 +60,13 @@ public class IONifyActivity extends Activity {
 
     // slide menu items
 
-    private String[] navMenuTitles;
-
-    private String[] navMenuNumber;
-
-
+    private List<String> navMenuTitles;
 
     private ArrayList<NavDrawerItem> navDrawerItems;
 
     private NavDrawerListAdapter adapter;
 
-    private db data;
+    private IONifyDataSource datasource;
 
     @Override
 
@@ -84,19 +78,14 @@ public class IONifyActivity extends Activity {
 
         mTitle = mDrawerTitle = getTitle();
 
-        // create elements_records Objekt
-        data = new db(this);
+        // Create DB adapter
+        datasource = new IONifyDataSource(this);
+        datasource.open();
 
-        // TODO ersten Test Eitrag erstellen
+        // load slide menu items from db
+        navMenuTitles = datasource.getMenuTitleList();
 
-        // load slide menu items
-        // TODO Element Namen als StringArray aus Datenbank ziehen
-        navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
-
-        // nav drawer icons from resources
-        // TODO Icons durch Nummern ersetzen
-        // TODO Nummern aus Datenbank holen
-        navMenuNumber = getResources().getStringArray(R.array.nav_drawer_icons);
+        datasource.close();
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
@@ -104,29 +93,9 @@ public class IONifyActivity extends Activity {
 
         navDrawerItems = new ArrayList<NavDrawerItem>();
         // adding nav drawer items to array
-        // TODO Menue punkte mit schleife erzeugen
-
-        navDrawerItems.add(new NavDrawerItem(navMenuNumber[0]+' '+navMenuTitles[0]));
-
-
-        navDrawerItems.add(new NavDrawerItem( navMenuNumber[1]+' '+navMenuTitles[1]));
-
-        // Sunshine
-
-        navDrawerItems.add(new NavDrawerItem(navMenuNumber[2]+' '+navMenuTitles[2]));
-
-        // Rainy, Will add a counter here
-
-        navDrawerItems.add(new NavDrawerItem( navMenuNumber[3]+' '+navMenuTitles[3]));
-
-        //Snow
-
-        navDrawerItems.add(new NavDrawerItem(navMenuNumber[4]+' '+navMenuTitles[4]));
-
-        // What's hot, We  will add a counter here
-
-        navDrawerItems.add(new NavDrawerItem(navMenuNumber[5]+' '+navMenuTitles[5]));
-
+        for (String temp : navMenuTitles) {
+            navDrawerItems.add(new NavDrawerItem(temp));
+        }
 
         mDrawerList.setOnItemClickListener(new SlideMenuClickListener());
 
@@ -278,7 +247,6 @@ public class IONifyActivity extends Activity {
         boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
 
         menu.findItem(R.id.action_help).setVisible(!drawerOpen);
-        menu.findItem(R.id.action_search).setVisible(drawerOpen);
 
         return super.onPrepareOptionsMenu(menu);
 
@@ -295,54 +263,13 @@ public class IONifyActivity extends Activity {
     private void displayView(int position) {
 
         // update the main content by replacing fragments
-        // TODO wenn Menue fertig hier ContentView automatisieren
 
         Fragment fragment = null;
-
-        switch (position) {
-
-            case 0:
-                fragment = new ContentFragment();
-                break;
-
-            case 1:
-
-               //fragment = new WinterFragment();
-
-                break;
-
-            case 2:
-
-                ///fragment = new RainyFragment();
-
-                break;
-
-            case 3:
-
-                //fragment = new NightatFragment();
-
-                break;
-
-            case 4:
-
-                //fragment = new SunshineFragment();
-
-                break;
-
-            case 5:
-
-                //fragment = new WhatsHotFragment();
-
-                break;
-
-
-
-            default:
-
-                break;
-
-        }
-
+        Element element = null;
+        datasource.open();
+            element = datasource.getElementContent(position+1);
+        datasource.close();
+        fragment = new ContentFragment(element);
 
 
         if (fragment != null) {
@@ -355,7 +282,7 @@ public class IONifyActivity extends Activity {
 
             mDrawerList.setSelection(position);
 
-            setTitle(navMenuTitles[position]);
+            setTitle(navMenuTitles.get(position));
 
             mDrawerLayout.closeDrawer(mDrawerList);
 

@@ -6,10 +6,4 @@
           android:title="@string/action_help"
           android:titleCondensed="@string/app_name"
           android:showAsAction="always" />
-
-    <item android:id="@+id/action_search"
-          android:icon="@drawable/ic_action_search"
-          android:title="@string/action_search"
-          android:showAsAction="never|collapseActionView|ifRoom"
-          android:actionViewClass="android.widget.SearchView"/>
 </menu>

@@ -2,30 +2,8 @@
 <resources>
     <string name="app_name">IONify</string>
     <string name="action_help">Hilfe</string>
-    <string name="action_search">Suchen</string>
     <string name="drawer_open">Slider Menu Opened</string>
     <string name="drawer_close">Slider Menu Closed</string>
-
-    <!-- Nav Drawer Menu Items -->
-    <string-array name="nav_drawer_items">
-        <item >Bright Sun</item>
-        <item >Night At</item>
-        <item >Sunshine</item>
-        <item >Rainy Season </item>
-        <item >Winter Season</item>
-        <item >Hot Temp</item>
-    </string-array>
-
-    <!-- Nav Drawer List Item Icons -->
-    <!-- Keep them in order as the titles are in -->
-    <string-array name="nav_drawer_icons">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-    </string-array>
 
     <!-- Content Description -->
     <string name="desc_list_item_icon">Ordnung</string>
@@ -35,19 +13,9 @@
 
     <!-- Fragment Titles -->
     <string name="frag_all_title">Allgemein</string>
-    <string name="frag_name">Name:</string>
-    <string name="frag_symbol">Symbol:</string>
-    <string name="frag_ord">Ordnungszahl:</string>
-    <string name="frag_ele">Elektronenkonfiguration:</string>
-    <string name="frag_atomm">Atommasse:</string>
 
     <string name="frag_phy_title">physikalisch</string>
-    <string name="frag_schmp">Schmelzpunkt:</string>
-    <string name="frag_siedp">Siedepunkt:</string>
-    <string name="frag_dich">Dichte:</string>
-    <string name="frag_schmw">Schmelzwärme:</string>
-    <string name="frag_spezw">spezifische Wärme:</string>
-    
+
     <string name="frag_lad_title">Ladungszustand</string>
     <string name="frag_dummy">DUMMY TEXT</string>
 </resources>

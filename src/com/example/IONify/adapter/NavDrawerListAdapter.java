@@ -19,6 +19,7 @@ public class NavDrawerListAdapter extends BaseAdapter {
     private Context context;
 
     private ArrayList<NavDrawerItem> navDrawerItems;
+
     public NavDrawerListAdapter(Context context, ArrayList<NavDrawerItem> navDrawerItems){
 
         this.context = context;
