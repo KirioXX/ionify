@@ -9,17 +9,15 @@
             android:id="@+id/txtLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16dp"
+            android:textSize="14dp"
             android:text="@string/home_text"
-            android:layout_marginBottom="20dp" android:layout_above="@+id/button_menu"
-            android:layout_centerHorizontal="true"/>
+            android:layout_alignParentStart="false" android:layout_centerHorizontal="true" android:autoText="false"
+            />
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/home_button"
             android:id="@+id/button_menu"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            />
+            android:layout_below="@+id/txtLabel" android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

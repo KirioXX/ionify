@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.SeekBar;
 import com.example.IONify.R;
 import com.example.IONify.adapter.FragArrayAdapter;
 import com.example.IONify.model.Element;
@@ -21,7 +22,7 @@ import java.util.jar.Attributes;
 /**
  * Created by BEN on 27.05.2014.
  */
-public class ContentFragment extends Fragment {
+public class ContentFragment extends Fragment implements SeekBar.OnSeekBarChangeListener {
     private FragArrayAdapter AllgAdapter;
     private FragArrayAdapter PhyAdapter;
     private Element element;
@@ -49,6 +50,10 @@ public class ContentFragment extends Fragment {
         setPhyAdapter(rootView);
         FragPhyList.setAdapter(PhyAdapter);
 
+        //set SeekBar max
+        SeekBar FragSeekbar = (SeekBar) rootView.findViewById(R.id.frag_seekBar);
+        FragSeekbar.setMax(element.getId());
+
         return rootView;
 
     }
@@ -58,7 +63,7 @@ public class ContentFragment extends Fragment {
       // adding nav drawer items to array
       for (String temp : Allgemein) {
           String titleVal = temp+":";
-          String contentVal = element.getString(temp);
+          String contentVal = element.getWhitUnit(temp);
           AllgItems.add(new FrakModel(titleVal,contentVal));
       }
       AllgAdapter = new FragArrayAdapter(rootView.getContext(),AllgItems);
@@ -69,9 +74,24 @@ public class ContentFragment extends Fragment {
         // adding nav drawer items to array
         for (String temp : Physikalisch) {
             String titleVal = temp+":";
-            String contentVal = element.getString(temp);
+            String contentVal = element.getWhitUnit(temp);
             PhyItems.add(new FrakModel(titleVal,contentVal));
         }
         PhyAdapter = new FragArrayAdapter(rootView.getContext(),PhyItems);
+    }
+
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+
     }
 }

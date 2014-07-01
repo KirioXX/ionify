@@ -1,45 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_height="fill_parent"
-            android:layout_width="fill_parent"
-            android:fillViewport="true">
-    <RelativeLayout
-                  android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent">
+    <LinearLayout android:orientation="vertical"
+                  android:layout_width="fill_parent"
                   android:layout_height="wrap_content"
-                  android:orientation="vertical">
-        <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" android:padding="20dp">
-            <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/content_title_size"
-                    android:text="@string/frag_all_title"
-                    />
-            <ListView
-                    android:id="@+id/list_allgemein"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    />
-            <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/content_title_size"
-                    android:text="@string/frag_phy_title"
-                    android:layout_marginTop="10dp"/>
-            <ListView
-                    android:id="@+id/list_physikalisch"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    />
-            <SeekBar
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/seekBar"
-                    android:max="100"/>
-        </LinearLayout>
-
-    </RelativeLayout>
+                  android:padding="20dp" android:id="@+id/linearLayout" android:gravity="center_vertical|top">
+        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
+                  android:textSize="@dimen/content_title_size" android:text="@string/frag_all_title"
+                />
+        <ListView android:id="@+id/list_allgemein" android:layout_width="match_parent"
+                  android:layout_height = "300dp" android:layout_marginLeft="10dp"
+                  />
+        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
+                  android:textSize="@dimen/content_title_size" android:text="@string/frag_phy_title"
+                  android:layout_marginTop="10dp"/>
+        <ListView android:id="@+id/list_physikalisch" android:layout_width="match_parent"
+                  android:layout_height = "300dp" android:layout_marginLeft="10dp"/>
+        <SeekBar android:id="@+id/frag_seekBar" android:layout_width="fill_parent" android:layout_height="wrap_content"
+                 android:max="100"/>
+    </LinearLayout>
 </ScrollView>
