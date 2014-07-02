@@ -66,9 +66,9 @@ public class IONifyDataSource {
         celement.setAtommasse(cursor.getDouble(cursor.getColumnIndex(ColumIndex[4])));
         celement.setSchmelzpunkt(cursor.getDouble(cursor.getColumnIndex(ColumIndex[5])));
         celement.setSiedepunkt(cursor.getDouble(cursor.getColumnIndex(ColumIndex[6])));
-        celement.setDichte(cursor.getDouble(cursor.getColumnIndex(ColumIndex[7])));
-        celement.setSchmelzwärme(cursor.getDouble(cursor.getColumnIndex(ColumIndex[8])));
-        celement.setSpezifischeWärme(cursor.getDouble(cursor.getColumnIndex(ColumIndex[9])));
+        celement.setDichte(cursor.getString(cursor.getColumnIndex(ColumIndex[7])));
+        celement.setSchmelzwärme(cursor.getString(cursor.getColumnIndex(ColumIndex[8])));
+        celement.setSpezifischeWärme(cursor.getString(cursor.getColumnIndex(ColumIndex[9])));
         return celement;
     }
 

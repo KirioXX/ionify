@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.SeekBar;
+import android.widget.TextView;
 import com.example.IONify.R;
 import com.example.IONify.adapter.FragArrayAdapter;
 import com.example.IONify.model.Element;
@@ -28,7 +29,8 @@ public class ContentFragment extends Fragment implements SeekBar.OnSeekBarChange
     private Element element;
     private String[] Allgemein = {"Name","Symbol","Id","Elektronenkonfiguration","Atommasse"};
     private String[] Physikalisch = {"Schmelzpunkt","Siedepunkt","Dichte","Schmelzwärme","SpezifischeWärme"};
-
+    private SeekBar FragSeekbar;
+    private TextView textProgress;
 
     public ContentFragment(Element element){
         this.element =element;
@@ -37,6 +39,7 @@ public class ContentFragment extends Fragment implements SeekBar.OnSeekBarChange
     @Override
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
 
         View rootView = inflater.inflate(R.layout.fragment_content, container, false);
 
@@ -53,6 +56,10 @@ public class ContentFragment extends Fragment implements SeekBar.OnSeekBarChange
         //set SeekBar max
         SeekBar FragSeekbar = (SeekBar) rootView.findViewById(R.id.frag_seekBar);
         FragSeekbar.setMax(element.getId());
+        FragSeekbar.setOnSeekBarChangeListener(this);
+
+        // make text label for progress value
+        textProgress = (TextView) rootView.findViewById(R.id.textViewProgress);
 
         return rootView;
 
@@ -82,7 +89,8 @@ public class ContentFragment extends Fragment implements SeekBar.OnSeekBarChange
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-
+        // change progress text label with current seekbar value
+        textProgress.setText("Ladungszustand: "+progress);
     }
 
     @Override

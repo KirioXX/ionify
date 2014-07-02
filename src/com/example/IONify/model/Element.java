@@ -14,9 +14,9 @@ public class Element {
     private double atommasse;
     private double schmelzpunkt;
     private double siedepunkt;
-    private double dichte;
-    private double schmelzwärme;
-    private double spezifischeWärme;
+    private String dichte;
+    private String schmelzwärme;
+    private String spezifischeWärme;
 
     public int getId() {
         return id;
@@ -74,27 +74,27 @@ public class Element {
         this.siedepunkt = siedepunkt;
     }
 
-    public double getDichte() {
+    public String getDichte() {
         return dichte;
     }
 
-    public void setDichte(double dichte) {
+    public void setDichte(String dichte) {
         this.dichte = dichte;
     }
 
-    public double getSchmelzwärme() {
+    public String getSchmelzwärme() {
         return schmelzwärme;
     }
 
-    public void setSchmelzwärme(double schmelzwärme) {
+    public void setSchmelzwärme(String schmelzwärme) {
         this.schmelzwärme = schmelzwärme;
     }
 
-    public double getSpezifischeWärme() {
+    public String getSpezifischeWärme() {
         return spezifischeWärme;
     }
 
-    public void setSpezifischeWärme(double spezifischeWärme) {
+    public void setSpezifischeWärme(String spezifischeWärme) {
         this.spezifischeWärme = spezifischeWärme;
     }
 
@@ -121,17 +121,17 @@ public class Element {
             return Double.toString(siedepunkt)+"°K";
         }
         if (value == "Dichte"){
-            return Double.toString(dichte)+"kg·m⁻³";
+            return dichte+" kg·m⁻³";
         }
         if (value == "Schmelzwärme"){
-            if(schmelzwärme != 0.0 || schmelzwärme != -0.0){
-                return Double.toString(schmelzwärme)+"kJ/mol";
+            if(schmelzwärme != "-"){
+                return schmelzwärme+" kJ/mol";
             }else{
-                return "-";
+                return schmelzwärme;
             }
         }
         if(value == "SpezifischeWärme"){
-            return Double.toString(spezifischeWärme)+"kJ/mol";
+            return spezifischeWärme+" kJ/mol";
         }
 
         return "Null";
