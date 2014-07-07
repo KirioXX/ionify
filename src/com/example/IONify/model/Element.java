@@ -1,7 +1,7 @@
 package com.example.IONify.model;
 
-import java.sql.Blob;
-import java.util.jar.Attributes;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by ben on 25.06.14.
@@ -17,6 +17,9 @@ public class Element {
     private String dichte;
     private String schmelzwärme;
     private String spezifischeWärme;
+    private List<String> ionisationsenergien;
+    private List<String> ladElektronenkonfiguration;
+    private List<String> energiepotential = new ArrayList<String>();
 
     public int getId() {
         return id;
@@ -98,44 +101,71 @@ public class Element {
         this.spezifischeWärme = spezifischeWärme;
     }
 
+    /*public String getIonisationsenergien() {
+        return ionisationsenergien;
+    }*/
+
+    public void setIonisationsenergien(List<String> ionisationsenergien){
+        this.ionisationsenergien = ionisationsenergien;
+
+    }
+    public String getLadElektronenkonfiguration(int prog){
+        return ladElektronenkonfiguration.get(prog);
+    }
+    public void setLadElektronenkonfiguration(List<String> ladElektronenkonfiguration){
+        this.ladElektronenkonfiguration = ladElektronenkonfiguration;
+    }
+    public String getEnergiepotential(int i){
+        if(i==0) {
+            return "";
+        }else{
+            return energiepotential.get(i-1);
+        }
+    }
+    public void setEnergiepotential(List<String> energiepotential){
+        this.energiepotential = energiepotential;
+    }
+
     public String getWhitUnit(String value){
-        if (value == "Name"){
+        if (value.equals("Name")){
             return name;
         }
-        if (value == "Symbol"){
+        if (value.equals("Symbol")){
             return symbol;
         }
-        if (value == "Id"){
+        if (value.equals("Id")){
             return Integer.toString(id);
         }
-        if(value == "Elektronenkonfiguration"){
+        if(value.equals("Elektronenkonfiguration")){
             return elektronenkonfiguration;
         }
-        if (value == "Atommasse"){
+        if (value.equals("Atommasse")){
             return Double.toString(atommasse);
         }
-        if (value == "Schmelzpunkt"){
+        if (value.equals("Schmelzpunkt")){
             return Double.toString(schmelzpunkt)+"°K";
         }
-        if (value == "Siedepunkt"){
+        if (value.equals("Siedepunkt")){
             return Double.toString(siedepunkt)+"°K";
         }
-        if (value == "Dichte"){
+        if (value.equals("Dichte")){
             return dichte+" kg·m⁻³";
         }
-        if (value == "Schmelzwärme"){
+        if (value.equals("Schmelzwärme")){
             if(schmelzwärme != "-"){
                 return schmelzwärme+" kJ/mol";
             }else{
                 return schmelzwärme;
             }
         }
-        if(value == "SpezifischeWärme"){
+        if(value.equals("SpezifischeWärme")){
             return spezifischeWärme+" kJ/mol";
         }
 
+
         return "Null";
     }
+
 
     @Override
     public String toString() {

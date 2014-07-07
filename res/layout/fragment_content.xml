@@ -33,5 +33,10 @@
                 />
         <SeekBar android:id="@+id/frag_seekBar" android:layout_width="fill_parent" android:layout_height="wrap_content"
                  android:max="100"/>
+        <ListView android:id="@+id/list_ladungsstand"
+                  android:layout_width="match_parent"
+                  android:layout_height="300dp"
+                  android:layout_marginLeft="10dp"/>
+
     </LinearLayout>
 </ScrollView>

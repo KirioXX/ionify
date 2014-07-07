@@ -4,6 +4,9 @@ import com.example.IONify.adapter.NavDrawerListAdapter;
 
 import com.example.IONify.model.Element;
 import com.example.IONify.model.NavDrawerItem;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -351,4 +354,8 @@ public class IONifyActivity extends Activity {
     public void openDrawer(){
         mDrawerLayout.openDrawer(mDrawerList);
     }
+
+    //JSON
+
+
 }
