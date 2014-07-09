@@ -1,5 +1,6 @@
 package com.example.IONify.model;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,8 +18,8 @@ public class Element {
     private String dichte;
     private String schmelzwärme;
     private String spezifischeWärme;
-    private List<String> ionisationsenergien;
-    private List<String> ladElektronenkonfiguration;
+    private List<List> ionisationsenergien;
+    private List<String> ladElektronenkonfiguration = new ArrayList<String>();
     private List<String> energiepotential = new ArrayList<String>();
 
     public int getId() {
@@ -101,23 +102,39 @@ public class Element {
         this.spezifischeWärme = spezifischeWärme;
     }
 
-    /*public String getIonisationsenergien() {
-        return ionisationsenergien;
-    }*/
+    public String getIonisationsenergien(int i) {
+        if(i < ionisationsenergien.size()){
+            String out = "";
+            int index = 1;
+            List<String> data = new ArrayList<String>();
+            data = ionisationsenergien.get(i);
+            for(String temp : data){
+                out = out+index+"s:"+temp+" eV \n";
+                index++;
+            }
+            return out;
+        }else{
+            return "-";
+        }
+    }
 
-    public void setIonisationsenergien(List<String> ionisationsenergien){
+    public void setIonisationsenergien(List<List> ionisationsenergien){
         this.ionisationsenergien = ionisationsenergien;
 
     }
-    public String getLadElektronenkonfiguration(int prog){
-        return ladElektronenkonfiguration.get(prog);
+    public String getLadElektronenkonfiguration(int i){
+        if(i == ladElektronenkonfiguration.size()){
+            return "-";
+        }else{
+            return ladElektronenkonfiguration.get(i);
+        }
     }
     public void setLadElektronenkonfiguration(List<String> ladElektronenkonfiguration){
         this.ladElektronenkonfiguration = ladElektronenkonfiguration;
     }
     public String getEnergiepotential(int i){
         if(i==0) {
-            return "";
+            return "-";
         }else{
             return energiepotential.get(i-1);
         }

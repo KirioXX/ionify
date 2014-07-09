@@ -35,7 +35,7 @@
                  android:max="100"/>
         <ListView android:id="@+id/list_ladungsstand"
                   android:layout_width="match_parent"
-                  android:layout_height="300dp"
+                  android:layout_height="400dp"
                   android:layout_marginLeft="10dp"/>
 
     </LinearLayout>

@@ -8,7 +8,7 @@
     <!-- Content Description -->
     <string name="desc_list_item_icon">Ordnung</string>
 
-    <string name="home_text">Für Elemente, mit einer Odnungszahl von Z \u003C\u003D 58 wird die Elektronenkonfiguration und die Ionisierungsenergien aller Schalen, sowie die potenzielle Energie bereitgestellt. Für Elemente mit einer Ordnungszahl von 59\u003C\u003D Z\u003C\u003D 92 werden die Ionisationsenergie sowie die potenzielle Energie bereitgestellt.\n\n
+    <string name="home_text">Für Elemente, mit einer Odnungszahl von Z \u003C\u003D 58 wird die Elektronenkonfiguration und die Ionisierungsenergien aller Schalen, sowie die potenzielle Energie bereitgestellt. <!--Für Elemente mit einer Ordnungszahl von 59\u003C\u003D Z\u003C\u003D 92 werden die Ionisationsenergie sowie die potenzielle Energie bereitgestellt.\n\n-->
 
         Bitte wählen Sie ein Element und einen zugehörigen Ladungszustand aus der Liste aus (0 für neutrale Atome).\n\n
 

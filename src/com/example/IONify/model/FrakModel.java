@@ -12,7 +12,6 @@ public class FrakModel {
         this.content = content;
     }
 
-
     public String getTitle() {
         return title;
     }

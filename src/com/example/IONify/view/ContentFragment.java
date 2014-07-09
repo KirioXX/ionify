@@ -26,6 +26,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.*;
@@ -45,6 +46,7 @@ public class ContentFragment extends Fragment implements SeekBar.OnSeekBarChange
     private TextView textProgress;
     private ListView FragLadList;
     public View rootView;
+    private int prog;
 
     public ContentFragment(Element element){
         this.element =element;
@@ -66,6 +68,7 @@ public class ContentFragment extends Fragment implements SeekBar.OnSeekBarChange
         ListView FragPhyList = (ListView) rootView.findViewById(R.id.list_physikalisch);
         setPhyAdapter(rootView);
         FragPhyList.setAdapter(PhyAdapter);
+
         if(element.getId()<59){
             //set SeekBar max
             SeekBar FragSeekbar = (SeekBar) rootView.findViewById(R.id.frag_seekBar);
@@ -109,19 +112,22 @@ public class ContentFragment extends Fragment implements SeekBar.OnSeekBarChange
         ArrayList<FrakModel> LadItems = new ArrayList<FrakModel>();
         //adding nav drawer items to array
         for (String temp : Ladungszustand){
-            String titleVal = temp+":";
-            String contentVal = "";
-            /*if (temp.equals("Elektronenkonfiguration")) {
-                contentVal = element.getLadElektronenkonfiguration(prog);
-            }*/
-            if (temp.equals("Ionisationsenergien")){
-                contentVal = element.getEnergiepotential(prog);
-            }
-            if (temp.equals("Energiepotential")){
-                contentVal = element.getEnergiepotential((prog));
+            if(temp!="Ionisationsenergien der außeren Schale"){
+
+                String titleVal = temp+":";
+                String contentVal = "";
+                if (temp.equals("Ionisationsenergien")){
+                    contentVal = element.getIonisationsenergien(prog);
+                }
+                if (temp.equals("Energiepotential")){
+                    contentVal = element.getEnergiepotential(prog);
+                }
+                if (temp.equals("Elektronenkonfiguration")){
+                    contentVal = element.getLadElektronenkonfiguration(prog);
+                }
+                LadItems.add(new FrakModel(titleVal,contentVal));
             }
 
-            LadItems.add(new FrakModel(titleVal,contentVal));
         }
         LadAdapter = new FragArrayAdapter(rootView.getContext(),LadItems);
     }
@@ -130,10 +136,9 @@ public class ContentFragment extends Fragment implements SeekBar.OnSeekBarChange
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         // change progress text label with current seekbar value
 
-
         textProgress.setText("Ladungszustand: " + progress);
-        setLadAdapter(rootView, progress);
-        FragLadList.setAdapter(LadAdapter);
+        prog = progress;
+
     }
 
     @Override
@@ -143,7 +148,8 @@ public class ContentFragment extends Fragment implements SeekBar.OnSeekBarChange
 
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
-
+        setLadAdapter(rootView, prog);
+        FragLadList.setAdapter(LadAdapter);
     }
 
     private void ParseJSON(){
@@ -186,13 +192,24 @@ public class ContentFragment extends Fragment implements SeekBar.OnSeekBarChange
             ionisationsenergien = jObject.getJSONObject("Eion");
             elektronenkonfigurationen = jObject.getJSONObject("Conf");
 
+
+            List<String> potstring = new ArrayList<String>();
+            List<List> ionstring = new ArrayList<List>();
+            List<String> confstring = new ArrayList<String>();
             //get potential values
             String epot = null;
-            String ion = null;
-            JSONArray ionArray;
-            List<String> potstring = new ArrayList<String>();
-            List<String> ionstring = new ArrayList<String>();
+            List<String> ion = null;
+            String conf = null;
 
+            JSONArray ionArray = null;
+            try{
+                for(int i=0; i < elektronenkonfigurationen.length();i++) {
+                    conf = elektronenkonfigurationen.getString(""+i);
+                    confstring.add(conf);
+                }
+            }catch(JSONException e){
+                e.printStackTrace();
+            }
             try{
                 for(int i=1; i<=energiepotentiale.length();i++) {
                     epot = energiepotentiale.getString(""+i);
@@ -202,18 +219,23 @@ public class ContentFragment extends Fragment implements SeekBar.OnSeekBarChange
                 e.printStackTrace();
             }
 
-
             try {
-                for (int i = 1; i < ionisationsenergien.length(); i++) {
+                for (int i = 0; i < ionisationsenergien.length(); i++) {
                     ionArray = ionisationsenergien.getJSONArray("" + i);
-                    ion = ionArray.toString();
+                    ion = new ArrayList<String>();
+                    for(int j = 0; j < ionArray.length();j++){
+                        ion.add(ionArray.get(j).toString());
+                    }
                     ionstring.add(ion);
+
                 }
+
             }catch(JSONException e){
                 e.printStackTrace();
             }
-            element.setEnergiepotential(potstring);
+            element.setLadElektronenkonfiguration(confstring);
             element.setIonisationsenergien(ionstring);
+            element.setEnergiepotential(potstring);
 
         } catch (JSONException e) {
             e.printStackTrace();
