@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">IONify</string>
+    <string name="action_help">Help</string>
+    <string name="drawer_open">Slider Menu Opened</string>
+    <string name="drawer_close">Slider Menu Closed</string>
+
+    <!-- Content Description -->
+    <string name="desc_list_item_icon">Ordnung</string>
+
+    <string name="home_text">Für Elemente, mit einer Odnungszahl von Z \u003C\u003D 58 wird die Elektronenkonfiguration und die Ionisierungsenergien aller Schalen, sowie die potenzielle Energie bereitgestellt. <!--Für Elemente mit einer Ordnungszahl von 59\u003C\u003D Z\u003C\u003D 92 werden die Ionisationsenergie sowie die potenzielle Energie bereitgestellt.\n\n-->
+
+        Bitte wählen Sie ein Element und einen zugehörigen Ladungszustand aus der Liste aus (0 für neutrale Atome).\n\n
+
+        Um die Eigenschaften eines Elementes zu sehen, können Sie das entsprechende Element aus der Liste wählen.</string>
+    <string name="home_button">Zur Liste</string>
+
+    <!-- Fragment Titles -->
+    <string name="frag_all_title">Allgemein</string>
+
+    <string name="frag_phy_title">physikalisch</string>
+
+    <string name="frag_lad_title">Ladungszustand</string>
+    <string name="frag_dummy">DUMMY TEXT</string>
+</resources>

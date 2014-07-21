@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="/Users/tonimoeckel/Projects/OpenSource/IONify/app/build/intermediates/pre-dexed/debug/sqliteassethelper-2.0.1-5f22fbba7262848a01ab85ea24e5bbc81cb843a5.jar"
+        jar="/Users/tonimoeckel/Projects/OpenSource/IONify/app/libs/sqliteassethelper-2.0.1.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="d5f02e4a4d65ec0fbb339f2e4228723d1540bb9f"/>
+    <item
+        dex="/Users/tonimoeckel/Projects/OpenSource/IONify/app/build/intermediates/pre-dexed/debug/support-v4-19.1.0-5d29b3a41fad45edf56d29b9f6e928ff25feaf84.jar"
+        jar="/Users/tonimoeckel/Development/adt-bundle-mac/sdk/extras/android/m2repository/com/android/support/support-v4/19.1.0/support-v4-19.1.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67"/>
+
+</pre-dex-items>
